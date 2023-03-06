@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class OrderDetail
+    public class OrderDetail
     {
+
+        public int OrderId { set; get; }
+        public int ProductId { set; get; }
+        public int Quantity { set; get; }
+        public decimal Price { set; get; }
+
+        public Order Order { get; set; }
+
+        public Product Product { get; set; }
+
     }
 }
