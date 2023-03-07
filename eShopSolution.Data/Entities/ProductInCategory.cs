@@ -8,12 +8,14 @@ namespace eShopSolution.Data.Entities
 {
     public class ProductInCategory
     {
+        //public DateTime PublicationDate { get; set; }
         public int ProductId { get; set; }
 
-        public Product Product { get; set; }
+        public Product Product { get; set; } // bảng trung gian giữa 2 bảng phải thêm dòng này
 
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public Category Category { get; set; } // bảng trung gian giữa 2 bảng phải thêm dòng này
+
     }
 }

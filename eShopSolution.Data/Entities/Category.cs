@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eShopSolution.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,9 @@ namespace eShopSolution.Data.Entities
         public int? ParentId { set; get; }
         public Status Status { set; get; }
 
+
+      //  public ICollection<Product> Products { get; set; }
+   
         public List<ProductInCategory> ProductInCategories { get; set; }
 
         public List<CategoryTranslation> CategoryTranslations { get; set; }
