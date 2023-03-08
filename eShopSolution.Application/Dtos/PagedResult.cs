@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eShopSolution.Application.Catalog.Products.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,6 @@ namespace eShopSolution.Application.Dtos
         public List<T> Iterm { get; set; }  
 
         public int TotalRecord { get; set; }
-
+        public List<ProductViewModel> Items { get; internal set; }
     } 
 }
