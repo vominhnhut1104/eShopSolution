@@ -1,6 +1,5 @@
-﻿using eShopSolution.Application.Catalog.Products.Dtos.Public;
-using eShopSolution.Application.Catalog.Products.Dtos;
-using eShopSolution.Application.Dtos;
+﻿
+
 using eShopSolution.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -9,6 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using eShopSolution.ViewModels.Catalog.Product;
+using eShopSolution.ViewModels.Common;
+using eShopSolution.ViewModels.Catalog.Product.Public;
 
 namespace eShopSolution.Application.Catalog.Products
 {
@@ -92,5 +94,4 @@ namespace eShopSolution.Application.Catalog.Products
             return pagedResult;
         }
     }
-
 }
