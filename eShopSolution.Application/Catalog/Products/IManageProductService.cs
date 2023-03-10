@@ -1,7 +1,6 @@
 ﻿
 using eShopSolution.Data.EF;
 using eShopSolution.ViewModels.Catalog.Product;
-using eShopSolution.ViewModels.Catalog.Product.Manage;
 using eShopSolution.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -26,7 +25,7 @@ namespace eShopSolution.Application.Catalog.Products
        
         Task AddViewCount(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllPading(GetProductPagingRequest request);
+        Task<PagedResult<ProductViewModel>> GetAllPading(GetManageProductPagingRequest request);
 
         // Bài tập
         Task<int> AddImages(int productId, List<IFormFile> files);
