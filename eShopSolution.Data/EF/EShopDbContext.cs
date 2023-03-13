@@ -60,28 +60,6 @@ namespace eShopSolution.Data.EF
 
             modelBuilder.Seed();
 
-            // confif theo doc mới nhất 
-            // modelBuilder.Entity<Category>()
-
-
-
-            //.HasMany(p => p.Products)
-            //.WithMany(p => p.Categories)
-            //.UsingEntity<ProductInCategory>(
-            //    j => j
-            //        .HasOne(pt => pt.Product)
-            //        .WithMany(t => t.ProductInCategories)
-            //        .HasForeignKey(pt => pt.ProductId),
-            //    j => j
-            //        .HasOne(pt => pt.Category)
-            //        .WithMany(p => p.ProductInCategories)
-            //        .HasForeignKey(pt => pt.CategoryId),
-            //    j =>
-            //    {
-            //        j.Property(pt => pt.PublicationDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
-            //        j.HasKey(t => new { t.ProductId, t.CategoryId });
-            //    });
-            //base.OnModelCreating(modelBuilder);  // phương thức ghi đè để config theo cách Fluent API 
         }
 
         public DbSet<Product> Products { get; set; }
