@@ -20,9 +20,12 @@ namespace eShopSolution.Application.Catalog.Products
 
         Task<int> Delete(int productId);
 
+        Task<ProductViewModel> GetById(int productId, string languageId);
+
         Task<bool> UpdatePrice(int productId, decimal newPrice);// update Price ko sửa trực tiếp trên Productservice nên phải tạo update riêng
 
-       
+        Task<bool> UpdateStock(int productId, int addedQuantity);
+
         Task AddViewCount(int productId);
 
         Task<PagedResult<ProductViewModel>> GetAllPading(GetManageProductPagingRequest request);
