@@ -1,4 +1,5 @@
 using eShopSolution.Application.Catalog.Products;
+using eShopSolution.Application.Common;
 using eShopSolution.Data.EF;
 using eShopSolution.Utilities.Constants;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+//builder.Services.AddControllersWithViews();
 
 // add connectionString
 
@@ -27,9 +28,28 @@ builder.Services.AddDbContext<EShopDbContext>(options =>
 });
 
 
+builder.Services.AddDbContext<EShopDbContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString(SystemConstants.MainConnectionString);
+    //Log.Information($"Database ConnectionString: {connectionString}");
+
+    options.UseSqlServer(connectionString,
+        sqlServerOptionsAction: sqlOptions =>
+        {
+            sqlOptions.MigrationsAssembly("SRM.Api");
+            sqlOptions.EnableRetryOnFailure();
+        });
+});
+
+
 // declare DI
 
+builder.Services.AddTransient<IStorageService, FileStorageService>();
+
 builder.Services.AddTransient<IPublicProductService, PublicProductService>();
+builder.Services.AddTransient<IManageProductService, ManageProductService>();
+
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddSwaggerGen(c =>
 {

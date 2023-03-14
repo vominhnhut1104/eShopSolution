@@ -1,4 +1,4 @@
-﻿using eShopSolution.ViewModels.Catalog.Product;
+﻿using eShopSolution.ViewModels.Catalog.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
