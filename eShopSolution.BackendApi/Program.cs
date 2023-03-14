@@ -40,11 +40,7 @@ builder.Services.AddIdentity<AppUser, AppRole>()
 builder.Services.AddTransient<IStorageService, FileStorageService>();
 
 builder.Services.AddTransient<IPublicProductService, PublicProductService>();
-builder.Services.AddTransient<IStorageService, FileStorageService>();
-
-builder.Services.AddTransient<IPublicProductService, PublicProductService>();
 builder.Services.AddTransient<IManageProductService, ManageProductService>();
-
 builder.Services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
 builder.Services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
@@ -55,6 +51,8 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger eShop Solution", Version = "v1" });
 });
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
