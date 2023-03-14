@@ -1,7 +1,10 @@
 using eShopSolution.Application.Catalog.Products;
 using eShopSolution.Application.Common;
+using eShopSolution.Application.System.Users;
 using eShopSolution.Data.EF;
+using eShopSolution.Data.Entities;
 using eShopSolution.Utilities.Constants;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
@@ -27,19 +30,9 @@ builder.Services.AddDbContext<EShopDbContext>(options =>
         });
 });
 
-
-builder.Services.AddDbContext<EShopDbContext>(options =>
-{
-    var connectionString = builder.Configuration.GetConnectionString(SystemConstants.MainConnectionString);
-    //Log.Information($"Database ConnectionString: {connectionString}");
-
-    options.UseSqlServer(connectionString,
-        sqlServerOptionsAction: sqlOptions =>
-        {
-            sqlOptions.MigrationsAssembly("SRM.Api");
-            sqlOptions.EnableRetryOnFailure();
-        });
-});
+builder.Services.AddIdentity<AppUser, AppRole>()
+               .AddEntityFrameworkStores<EShopDbContext>()
+               .AddDefaultTokenProviders();
 
 
 // declare DI
@@ -47,9 +40,16 @@ builder.Services.AddDbContext<EShopDbContext>(options =>
 builder.Services.AddTransient<IStorageService, FileStorageService>();
 
 builder.Services.AddTransient<IPublicProductService, PublicProductService>();
+builder.Services.AddTransient<IStorageService, FileStorageService>();
+
+builder.Services.AddTransient<IPublicProductService, PublicProductService>();
 builder.Services.AddTransient<IManageProductService, ManageProductService>();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+builder.Services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+builder.Services.AddTransient<IUserService, UserService>();
+
 
 builder.Services.AddSwaggerGen(c =>
 {
