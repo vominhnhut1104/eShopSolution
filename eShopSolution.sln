@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
@@ -25,6 +24,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain", "2. Domain", "{19B1F616-ADE9-4ACE-B847-1201D451AE90}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Host", "3. Host", "{C4CB3E17-1198-40A9-99DE-B38D6241E3EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopSolution.AdminApp", "eShopSolution.AdminApp\eShopSolution.AdminApp.csproj", "{48CFCF3B-8B08-421C-947C-31AAF91C2960}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +57,10 @@ Global
 		{38CDEDDD-696D-4357-BAAD-CA09B9A25346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38CDEDDD-696D-4357-BAAD-CA09B9A25346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38CDEDDD-696D-4357-BAAD-CA09B9A25346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48CFCF3B-8B08-421C-947C-31AAF91C2960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48CFCF3B-8B08-421C-947C-31AAF91C2960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48CFCF3B-8B08-421C-947C-31AAF91C2960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48CFCF3B-8B08-421C-947C-31AAF91C2960}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +72,7 @@ Global
 		{49C605E1-8E9A-4BCE-84FA-C075B579B056} = {79FC9809-9B02-454A-927F-11D5EFA8518F}
 		{8EF6D276-410F-4305-B20A-D435CADE7B89} = {79FC9809-9B02-454A-927F-11D5EFA8518F}
 		{38CDEDDD-696D-4357-BAAD-CA09B9A25346} = {C4CB3E17-1198-40A9-99DE-B38D6241E3EB}
+		{48CFCF3B-8B08-421C-947C-31AAF91C2960} = {C4CB3E17-1198-40A9-99DE-B38D6241E3EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1701699-B87D-46C9-96FA-284EE035ED24}
