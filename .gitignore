@@ -62,10 +62,6 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-*.sln
-bin/
-Debug/
-package/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
