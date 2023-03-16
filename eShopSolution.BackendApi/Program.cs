@@ -1,4 +1,4 @@
-using eShopSolution.Application.Catalog.Products;
+﻿using eShopSolution.Application.Catalog.Products;
 using eShopSolution.Application.Common;
 using eShopSolution.Application.System.Users;
 using eShopSolution.Data.EF;
@@ -44,18 +44,17 @@ builder.Services.AddIdentity<AppUser, AppRole>()
 
 builder.Services.AddTransient<IStorageService, FileStorageService>();
 
-builder.Services.AddTransient<IPublicProductService, PublicProductService>();
-builder.Services.AddTransient<IManageProductService, ManageProductService>();
+builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
 builder.Services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
 builder.Services.AddTransient<IUserService, UserService>();
 
 
-builder.Services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
-builder.Services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
+//builder.Services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
+//builder.Services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 
-builder.Services.AddControllers()
+ builder.Services.AddControllers()
 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
 builder.Services.AddSwaggerGen(c =>
@@ -93,15 +92,17 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
-
+// 
 string issuer = builder.Configuration.GetValue<string>("Tokens:Issuer");
 string signingKey = builder.Configuration.GetValue<string>("Tokens:Key");
 byte[] signingKeyBytes = System.Text.Encoding.UTF8.GetBytes(signingKey);
 
 builder.Services.AddAuthentication(opt =>
 {
+   
     opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 .AddJwtBearer(options =>
 {
