@@ -1,4 +1,4 @@
-﻿using eShopSolution.ViewModels.Common;
+using eShopSolution.ViewModels.Common;
 using eShopSolution.ViewModels.System.Users;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
@@ -42,10 +42,10 @@ namespace eShopSolution.AdminApp.Services
 
             }
 
-           //var urlR = ($"/api/users/paging?pageIndex=" +
-              //$"{request.PageIndex}&pageSize={request.PageSize}&keyword={request.Keyword}&bearerToken={request.BearerToken}");
-            var urlR = ($"/api/users/paging?pageIndex=" +
-               $"{request.PageIndex}&pageSize={request.PageSize}&keyword={request.Keyword}");
+           var urlR = ($"/api/users/paging?pageIndex=" +
+              $"{request.PageIndex}&pageSize={request.PageSize}&keyword={request.Keyword}&bearerToken={request.BearerToken}");
+           // var urlR = ($"/api/users/paging?pageIndex=" +
+               //$"{request.PageIndex}&pageSize={request.PageSize}&keyword={request.Keyword}");
             var response = await client.GetAsync(urlR);
             var body = await response.Content.ReadAsStringAsync();
             var users = JsonConvert.DeserializeObject<PagedResult<UserVm>>(body);
