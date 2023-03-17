@@ -40,6 +40,13 @@ namespace eShopSolution.AdminApp.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return View();
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Login()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
