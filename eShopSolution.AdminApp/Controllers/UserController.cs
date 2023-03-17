@@ -24,6 +24,7 @@ namespace eShopSolution.AdminApp.Controllers
 
 
         public async Task<IActionResult> Index(string keyword, int pageIndex = 1, int pageSize = 10)
+        
         {
             var sessions = HttpContext.Session.GetString("Token");
 
@@ -48,7 +49,7 @@ namespace eShopSolution.AdminApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequest request)
         {
-            if (!ModelState.IsValid)
+             if (!ModelState.IsValid)
                 return View(ModelState);
 
             var token = await _userApiClient.Authenticate(request);
