@@ -71,11 +71,13 @@ namespace eShopSolution.BackendApi.Controllers
             return Ok(products);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+
+        // delete user 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var user = await _userService.GetById(id);
-            return Ok(user);
+            var result = await _userService.Delete(id);
+            return Ok(result);
         }
     }
 }
