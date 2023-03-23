@@ -6,6 +6,17 @@
     ViewData["Title"] = "Danh sách người dùng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@*Tạo section set thời gian thông báo thành công trong 2s *@
+
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+
 @*Phần tạo nút tìm kiếm và reset*@
 @*độ dài khoảng cách là 12*@
 @*thanh tìm kiếm chiếm 9 khoảng cách*@
@@ -42,6 +53,17 @@
 
 
         <div class="card-body">
+            @*Sử dụng bootrap tạo thông báo thành công*@
+            <div class="row">
+                @if (ViewBag.SuccessMsg != null)
+                {
+                    <div id="msgAlert" class="alert alert-success" role="alert">
+                        @ViewBag.SuccessMsg
+                    </div>
+                }
+            </div>
+
+
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -85,7 +107,7 @@
                                 </td>
                                 <td>
                                     @Html.ActionLink("Edit", "Edit", new { id= item.Id }) |
-                                    @Html.ActionLink("Detail", "Detail", new { id= item.Id  }) |
+                                    @Html.ActionLink("Details", "Details", new { id= item.Id  }) |
                                     @Html.ActionLink("Delete", "Delete", new { id= item.Id  })
                                 </td>
                             </tr>
