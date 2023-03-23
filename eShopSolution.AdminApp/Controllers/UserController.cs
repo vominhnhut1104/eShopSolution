@@ -35,10 +35,10 @@ namespace eShopSolution.AdminApp.Controllers
             };
             var data = await _userApiClient.GetUsersPagings(request);
             ViewBag.Keyword = keyword;  // lấy từ khóa keyword set giá trị để dùng tempdata
-            //if (TempData["result"] != null)
-            //{
-            //    ViewBag.SuccessMsg = TempData["result"];
-            //}
+            if (TempData["result"] != null)
+            {
+                ViewBag.SuccessMsg = TempData["result"];
+            }
             return View(data.ResultObj); // .ResultObj mới ra dc PageUser
 
             

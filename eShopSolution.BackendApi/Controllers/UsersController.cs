@@ -71,6 +71,14 @@ namespace eShopSolution.BackendApi.Controllers
             return Ok(products);
         }
 
+        // phương thức getbyId dùng cho nhiều nơi
+
+        [HttpGet("{id}")]  
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var user = await _userService.GetById(id);
+            return Ok(user);
+        }
 
         // delete user 
         [HttpDelete("{id}")]
