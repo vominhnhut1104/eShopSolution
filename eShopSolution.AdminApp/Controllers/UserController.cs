@@ -34,13 +34,21 @@ namespace eShopSolution.AdminApp.Controllers
                 PageSize = pageSize
             };
             var data = await _userApiClient.GetUsersPagings(request);
-            ViewBag.Keyword = keyword;
+            ViewBag.Keyword = keyword;  // lấy từ khóa keyword set giá trị để dùng tempdata
+            if (TempData["result"] != null)
+            {
+                ViewBag.SuccessMsg = TempData["result"];
+            }
             return View(data.ResultObj); // .ResultObj mới ra dc PageUser
+
+            
+
+
         }
 
 
         [HttpGet]
-        public async Task<IActionResult> Detail(Guid id)
+        public async Task<IActionResult> Details(Guid id)
         {
             var result = await _userApiClient.GetById(id);
 
@@ -62,7 +70,11 @@ namespace eShopSolution.AdminApp.Controllers
                 return View();
            var result = await _userApiClient.RegisterUser(request); // giá trị nhập vào đúng thì ta sẽ gọi đến _userApiClient để tạo đăng kí
             if (result.IsSuccessed)
+            {
+                TempData["result"] = "Thêm mới người dùng thành công";
                 return RedirectToAction("Index");// khi đăng kí thành công thì chuyển hướng kq  đến trang Index ở trên
+            }    
+                
 
             ModelState.AddModelError("", result.Message);
             return View(request); // còn nếu ko có kq thì  trả về View như ban đầu
@@ -97,7 +109,10 @@ namespace eShopSolution.AdminApp.Controllers
 
             var result = await _userApiClient.UpdateUser(request.Id, request);
             if (result.IsSuccessed)
+            {
+                TempData["result"] = "Cập nhật người dùng thành công";
                 return RedirectToAction("Index");
+            }
 
             ModelState.AddModelError("", result.Message);
             return View(request);
@@ -128,7 +143,10 @@ namespace eShopSolution.AdminApp.Controllers
 
             var result = await _userApiClient.Delete(request.Id);
             if (result.IsSuccessed)
+            {
+                TempData["result"] = "Xóa người dùng thành công";
                 return RedirectToAction("Index");
+            }
 
             ModelState.AddModelError("", result.Message);
             return View(request);
