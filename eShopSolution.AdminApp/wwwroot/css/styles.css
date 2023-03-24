@@ -4082,10 +4082,11 @@ textarea.form-control-lg {
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
-}
+} 
 .navbar-nav .dropdown-menu {
-  position: static;
-}
+        position: static;
+        right: 0;
+    }
 
 .navbar-text {
   padding-top: 0.5rem;
@@ -4409,7 +4410,13 @@ textarea.form-control-lg {
   flex-direction: row;
 }
 .navbar-expand .navbar-nav .dropdown-menu {
-  position: absolute;
+        position: absolute;
+     
+    }
+.dropdown-menu.dropdown-menu-right.show {
+    right: 0px;
+    top: 47px;
+    position: absolute;
 }
 .navbar-expand .navbar-nav .nav-link {
   padding-right: 0.5rem;
