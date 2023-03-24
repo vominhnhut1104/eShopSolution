@@ -29,6 +29,7 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddTransient<IUserApiClient, UserApiClient>();
 
+builder.Services.AddTransient<IRoleApiClient, RoleApiClient>();
 
 
 // loadtrang mà có sự thay đổi thì không cần chạy lại
