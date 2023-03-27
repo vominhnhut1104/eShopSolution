@@ -15,13 +15,13 @@ namespace eShopSolution.Application.Catalog.Products
 
     public interface IProductService
     {
-        Task <int> Create(ProductCreateRequest request);
+        Task<int> Create(ProductCreateRequest request);
 
         Task<int> Update(ProductUpdateRequest request);
 
         Task<int> Delete(int productId);
 
-        Task<ProductViewModel> GetById(int productId, string languageId);
+        Task<ProductVm> GetById(int productId, string languageId);
 
         Task<bool> UpdatePrice(int productId, decimal newPrice);// update Price ko sửa trực tiếp trên Productservice nên phải tạo update riêng
 
@@ -29,22 +29,24 @@ namespace eShopSolution.Application.Catalog.Products
 
         Task AddViewCount(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllPading(GetManageProductPagingRequest request);
+        Task<PagedResult<ProductVm>> GetAllPaging(GetManageProductPagingRequest request);
 
         // Bài tập
-        
+
 
 
         Task<int> AddImage(int productId, ProductImageCreateRequest request);
 
         Task<int> RemoveImage(int imageId);
 
-        Task<int> UpdateImage( int imageId, ProductImageUpdateRequest request);
+        Task<int> UpdateImage(int imageId, ProductImageUpdateRequest request);
 
         Task<ProductImageViewModel> GetImageById(int imageId);
         Task<List<ProductImageViewModel>> GetListImages(int productId);
 
+        Task<PagedResult<ProductVm>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
 
-        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
+
+
     }
 }
