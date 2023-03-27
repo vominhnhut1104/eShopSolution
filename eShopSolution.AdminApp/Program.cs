@@ -33,6 +33,8 @@ builder.Services.AddTransient<IRoleApiClient, RoleApiClient>();
 
 builder.Services.AddTransient<ILanguageApiClient, LanguageApiClient>();
 
+builder.Services.AddTransient<IProductApiClient, ProductApiClient>();
+
 
 // loadtrang mà có sự thay đổi thì không cần chạy lại
 
