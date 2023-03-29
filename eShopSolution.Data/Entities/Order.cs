@@ -22,5 +22,9 @@ namespace eShopSolution.Data.Entities
 
 
         public AppUser AppUser { get; set; }
+
+        public int CustomerId { set; get; }
+
+        public Customer Customer { set; get; }
     }
 }

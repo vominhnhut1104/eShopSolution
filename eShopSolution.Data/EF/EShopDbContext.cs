@@ -45,6 +45,11 @@ namespace eShopSolution.Data.EF
 
             modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
 
+
+            //
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            //
+
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
             modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
@@ -61,6 +66,9 @@ namespace eShopSolution.Data.EF
             modelBuilder.Seed();
 
         }
+
+
+        public DbSet<Customer> Customers { get; set; }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }

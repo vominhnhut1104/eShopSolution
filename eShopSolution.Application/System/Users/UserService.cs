@@ -218,5 +218,9 @@ namespace eShopSolution.Application.System.Users
             return new ApiSuccessResult<bool>();
         }
 
+        public Task<ApiResult<bool>> ListCustomer(Guid id, GetListCustomerRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
